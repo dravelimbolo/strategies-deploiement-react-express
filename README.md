@@ -183,7 +183,7 @@ Copyright (c) 2026 **Dravel IMBOLO**.
 
 <br/>
 
-_"Transformer des idées en applications fonctionnelles, robustes et scalables."_
+_"Transformons des idées en applications fonctionnelles, robustes et scalables."_
 
 <br/>
 
