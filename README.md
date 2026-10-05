@@ -1,6 +1,6 @@
 <div align="center">
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Inter&weight=900&size=40&duration=2800&pause=1200&color=001F5B&center=true&vCenter=true&width=700&height=90&lines=Strat%C3%A9gies+de+d%C3%A9ploiement;React+%2B+Express+sans+Docker)](https://github.com/dravelimbolo/strategies-deploiement-react-express)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Inter&weight=900&size=40&duration=2800&pause=1200&color=E8590C&center=true&vCenter=true&width=700&height=90&lines=Strat%C3%A9gies+de+d%C3%A9ploiement;React+%2B+Express+sans+Docker)](https://github.com/dravelimbolo/strategies-deploiement-react-express)
 
 **`Cours · React · Express · GitHub Actions · Nginx · PM2 · CI/CD`**
 
@@ -15,9 +15,9 @@ _Deux stratégies pour mettre en production une application React + Express, exp
 
 <br/>
 
-[![Akieni Academy](https://img.shields.io/badge/Akieni_Academy-mentorat-001F5B.svg)](#mentorat)
-[![Licence CC BY 4.0](https://img.shields.io/badge/licence-CC_BY_4.0-001F5B.svg)](LICENSE)
-[![PRs bienvenues](https://img.shields.io/badge/PRs-bienvenues-001F5B.svg)](CONTRIBUTING.md)
+[![Akieni Academy](https://img.shields.io/badge/Akieni_Academy-mentorat-E8590C.svg)](#mentorat)
+[![Licence CC BY 4.0](https://img.shields.io/badge/licence-CC_BY_4.0-E8590C.svg)](LICENSE)
+[![PRs bienvenues](https://img.shields.io/badge/PRs-bienvenues-E8590C.svg)](CONTRIBUTING.md)
 
 </div>
 
