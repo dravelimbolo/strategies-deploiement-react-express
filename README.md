@@ -1,102 +1,190 @@
-<p align="center">
-  <img src="assets/akieni-academy-logo.png" alt="Akieni Academy" width="160">
-</p>
+<div align="center">
 
-<h1 align="center">Stratégies de déploiement d'une application React + Express</h1>
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Inter&weight=900&size=40&duration=2800&pause=1200&color=E8590C&center=true&vCenter=true&width=700&height=90&lines=Strat%C3%A9gies+de+d%C3%A9ploiement;React+%2B+Express+sans+Docker)](https://github.com/dravelimbolo/strategies-deploiement-react-express)
 
-<p align="center">
-  <strong>Deux stratégies avec GitHub Actions, sans Docker</strong><br>
-  Suivi Individuel Mentorat • Akieni Academy
-</p>
+**`Cours · React · Express · GitHub Actions · Nginx · PM2 · CI/CD`**
 
-| Mentor référent | Contact |
+_Deux stratégies pour mettre en production une application React + Express, expliquées pas à pas pour les débutants._
+
+<br/>
+
+[![Portfolio](https://img.shields.io/badge/-dravelimbolo.com-111111?style=for-the-badge&logo=safari&logoColor=white)](https://dravelimbolo.com)
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-111111?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/dravel-imbolo)
+[![GitHub](https://img.shields.io/badge/-GitHub-111111?style=for-the-badge&logo=github&logoColor=white)](https://github.com/dravelimbolo)
+[![Email](https://img.shields.io/badge/-contact@dravelimbolo.com-111111?style=for-the-badge&logo=gmail&logoColor=white)](mailto:contact@dravelimbolo.com)
+
+<br/>
+
+[![Akieni Academy](https://img.shields.io/badge/Akieni_Academy-mentorat-E8590C.svg)](#mentorat)
+[![Licence CC BY 4.0](https://img.shields.io/badge/licence-CC_BY_4.0-E8590C.svg)](LICENSE)
+[![PRs bienvenues](https://img.shields.io/badge/PRs-bienvenues-E8590C.svg)](CONTRIBUTING.md)
+
+</div>
+
+---
+
+<div align="center">
+
+```
+Monorepo + 1 serveur   ·   2 dépôts indépendants   ·   GitHub Actions   ·   sans Docker
+```
+
+_Versionner, tester, auditer, déployer, sécuriser et revenir en arrière, du premier push jusqu'à la production._
+
+</div>
+
+---
+
+## Stack technique
+
+<table align="center">
+<tr>
+  <td align="center">
+    <strong>Frontend</strong><br/>
+    <img src="https://skillicons.dev/icons?i=react,vite,js" />
+  </td>
+  <td align="center">
+    <strong>Backend</strong><br/>
+    <img src="https://skillicons.dev/icons?i=nodejs,express" />
+  </td>
+  <td align="center">
+    <strong>Bases de données</strong><br/>
+    <img src="https://skillicons.dev/icons?i=postgres,mysql" />
+  </td>
+  <td align="center">
+    <strong>DevOps & Outils</strong><br/>
+    <img src="https://skillicons.dev/icons?i=git,github,githubactions,nginx,linux,bash" />
+  </td>
+</tr>
+</table>
+
+---
+
+## Les deux stratégies
+
+```
+Stratégie 1 :  monorepo  ──>  GitHub Actions  ──>  1 serveur (Nginx · PM2 · base de données)
+
+Stratégie 2 :  dépôt frontend  ──>  GitHub Actions  ──>  hébergement React
+               dépôt backend   ──>  GitHub Actions  ──>  serveur API  ──>  base de données
+```
+
+```
+strategies-deploiement-react-express/
+├── 01_contexte_et_objectifs.md                          # Stack, objectifs, les deux architectures
+├── 02_strategie_1_monorepo_1_serveur.md                 # Monorepo + 1 serveur · CORS
+├── 03_strategie_2_deux_repos_deploiements_independants.md  # 2 dépôts · contrat d'API
+├── 04_comparaison_des_strategies.md                     # Tableau comparatif · critères de choix
+├── 05_gitignore_et_readme.md                            # Ce qu'on versionne · secrets
+├── 06_ci_cd_github_actions.md                           # Lint · npm audit · Dependabot · workflows
+├── 07_deploiement_sans_docker.md                        # Serveur · Nginx · PM2 · releases
+├── 08_securite_production.md                            # SSH · firewall · HTTPS · sauvegardes
+├── 09_structure_projet_recommandee.md                   # Arborescences de référence
+├── 10_staging_production_rollback.md                    # Git Flow · environnements · rollback
+├── 11_points_dattention_et_bonnes_pratiques.md          # Migrations · erreurs fréquentes
+├── 12_synthese.md                                       # Résumé du cours
+├── 13_checklist_finale.md                               # Vérifications avant production
+├── 14_glossaire.md                                      # Termes techniques expliqués
+├── 15_travaux_pratiques.md                              # TP 0 à 8
+├── 16_autres_types_hebergement.md                       # Render · hébergement mutualisé cPanel
+├── assets/                                              # Logo Akieni Academy
+├── CONTRIBUTING.md                                      # Guide de contribution
+├── LICENSE                                              # Licence CC BY 4.0
+└── README.md
+```
+
+### Ce que tu vas apprendre
+
+| Notion | Mise en oeuvre dans le cours |
 |---|---|
-| Dravel-Ameguste IMBOLO | contact@dravelimbolo.com |
+| **Choix d'architecture** | Monorepo ou deux dépôts, un ou deux hébergeurs, VPS, Render ou cPanel |
+| **Intégration continue** | Workflow GitHub Actions : `npm ci` · lint ESLint · `npm audit` · tests · build |
+| **Sécurité des dépendances** | `npm audit`, Dependabot, Dependency Review, secret scanning |
+| **Déploiement sans Docker** | Nginx (statique + reverse proxy), PM2 en cluster, releases et lien `current` |
+| **Sécurité en production** | Utilisateur `deploy`, SSH par clé, firewall, HTTPS Certbot, base non exposée |
+| **Environnements** | `develop` vers staging, `main` vers production avec approbation |
+| **Retour arrière** | Rollback automatique sur health check, rollback manuel, migrations compatibles |
 
-## Présentation
+---
 
-Ce cours explique comment mettre en production une application composée d'un frontend React et d'un backend Node.js / Express, avec une chaîne CI/CD GitHub Actions.
+## Par où commencer
 
-Deux stratégies de déploiement sont comparées :
+> **Prérequis :** bases de JavaScript, React et Express · Git en ligne de commande · un compte GitHub
 
-1. **Monorepo et un serveur** : frontend et backend dans le même repository, déployés sur un seul serveur.
-2. **Deux repositories et déploiements indépendants** : frontend et backend séparés, déployés sur un ou deux hébergeurs.
-
-Le déploiement principal se fait sur un serveur Linux administré directement (Nginx, PM2, PostgreSQL ou MySQL), sans Docker. Des alternatives plus simples pour débuter (Render, hébergement mutualisé cPanel) sont présentées au chapitre 16.
-
-## Public visé
-
-Apprenants qui savent déjà développer une petite application React et une API Express en local, et qui découvrent la mise en production. Aucune expérience préalable du déploiement ou de l'administration de serveur n'est nécessaire.
-
-## Prérequis
-
-- bases de JavaScript, React et Express ;
-- utilisation de Git en ligne de commande (commit, branche, push, pull request) ;
-- un compte GitHub ;
-- bases du terminal (se déplacer dans les dossiers, éditer un fichier).
-
-Pour les travaux pratiques sur serveur : un VPS Linux (Ubuntu LTS par exemple) et un nom de domaine, ou à défaut une machine virtuelle locale. Pour débuter sans serveur, un compte Render gratuit suffit.
-
-## Objectifs d'apprentissage
-
-À la fin du cours, l'apprenant sait :
-
-- choisir entre un monorepo et deux repositories, et entre un ou deux hébergeurs ;
-- choisir un type d'hébergement adapté (PaaS, mutualisé, VPS) ;
-- écrire un pipeline GitHub Actions qui installe, analyse (lint), audite les dépendances, teste et construit le projet ;
-- préparer et sécuriser un serveur Linux pour héberger React et Express ;
-- configurer Nginx (fichiers statiques, reverse proxy, HTTPS) et PM2 ;
-- déployer par releases et revenir à une version précédente ;
-- organiser staging et production ;
-- garder les secrets hors du code.
-
-## Plan du cours
-
-Les chapitres marqués **Essentiel** sont à maîtriser en priorité. Les chapitres **Approfondissement** peuvent être lus dans un second temps.
-
-| N° | Chapitre | Niveau |
+| Étape | Chapitres | Objectif |
 |---|---|---|
-| 01 | [Contexte et objectifs](01_contexte_et_objectifs.md) | Essentiel |
-| 02 | [Stratégie 1 : monorepo et un serveur](02_strategie_1_monorepo_1_serveur.md) | Essentiel |
-| 03 | [Stratégie 2 : deux repositories et déploiements indépendants](03_strategie_2_deux_repos_deploiements_independants.md) | Essentiel |
-| 04 | [Comparaison des stratégies](04_comparaison_des_strategies.md) | Essentiel |
-| 05 | [`.gitignore` et `README.md`](05_gitignore_et_readme.md) | Essentiel |
-| 06 | [CI/CD avec GitHub Actions, lint et audit des dépendances](06_ci_cd_github_actions.md) | Essentiel |
-| 07 | [Déploiement sans Docker : serveur, Nginx, PM2](07_deploiement_sans_docker.md) | Essentiel |
-| 08 | [Sécurité en production](08_securite_production.md) | Essentiel |
-| 09 | [Structures recommandées](09_structure_projet_recommandee.md) | Référence |
-| 10 | [Staging, production et rollback](10_staging_production_rollback.md) | Approfondissement |
-| 11 | [Points d'attention et bonnes pratiques](11_points_dattention_et_bonnes_pratiques.md) | Approfondissement |
-| 12 | [Synthèse](12_synthese.md) | Essentiel |
-| 13 | [Checklist finale](13_checklist_finale.md) | Référence |
-| 14 | [Glossaire](14_glossaire.md) | Référence |
-| 15 | [Travaux pratiques](15_travaux_pratiques.md) | Essentiel |
-| 16 | [Autres types d'hébergement : Render et cPanel](16_autres_types_hebergement.md) | Essentiel pour débuter |
+| **1** | [01](01_contexte_et_objectifs.md) à [04](04_comparaison_des_strategies.md) | Comprendre les deux stratégies |
+| **2** | [16](16_autres_types_hebergement.md) + TP 0 | Premier déploiement simple sur Render |
+| **3** | [05](05_gitignore_et_readme.md) à [08](08_securite_production.md) | Pipeline CI/CD et déploiement sur un VPS |
+| **4** | [09](09_structure_projet_recommandee.md) à [11](11_points_dattention_et_bonnes_pratiques.md) | Staging, rollback et bonnes pratiques |
+| **5** | [15](15_travaux_pratiques.md) puis [13](13_checklist_finale.md) | Travaux pratiques et validation finale |
 
-## Parcours de lecture conseillé
+> Le [glossaire](14_glossaire.md) explique simplement chaque terme technique. La [synthèse](12_synthese.md) résume les règles à retenir.
 
-1. Lire les chapitres 01 à 04 pour comprendre les deux stratégies.
-2. Lire le chapitre 16 et faire un premier déploiement simple sur Render, pour voir rapidement le résultat.
-3. Lire les chapitres 05 à 08 en gardant un terminal ouvert : ils contiennent les commandes et fichiers à reproduire sur un VPS.
-4. Lire les chapitres 09 à 11 avant le premier déploiement réel en production.
-5. Réaliser les travaux pratiques du chapitre 15, puis valider avec la checklist du chapitre 13.
+### Conventions du cours
 
-Le glossaire (chapitre 14) peut être consulté à tout moment : chaque terme technique du cours y est expliqué simplement.
+| Élément | Valeur d'exemple |
+|---|---|
+| Domaines | `app.example.com` · `api.example.com` |
+| Application | `myapp` |
+| Utilisateur de déploiement | `deploy` |
+| Dossier sur le serveur | `/var/www/myapp` |
+| Port Express | `3000` |
 
-## Conventions utilisées
+---
 
-- `example.com`, `app.example.com` et `api.example.com` sont des domaines d'exemple à remplacer par les vôtres.
-- `myapp` est le nom d'exemple de l'application.
-- `deploy` est l'utilisateur Linux dédié au déploiement.
-- Les commandes précédées de `sudo` s'exécutent avec un compte administrateur du serveur, jamais dans GitHub Actions.
-- Les versions d'outils citées (Node.js, actions GitHub) sont celles en vigueur à la rédaction : vérifiez toujours la dernière version stable.
+## Mentorat
 
-## Contribuer
+<table align="center">
+<tr>
+  <td align="center">
+    <img src="assets/akieni-academy-logo.png" alt="Akieni Academy" width="110" />
+  </td>
+  <td>
+    <strong>Suivi Individuel Mentorat · Akieni Academy</strong><br/><br/>
+    Mentor référent : <strong>Dravel-Ameguste IMBOLO</strong><br/>
+    Contact : <a href="mailto:contact@dravelimbolo.com">contact@dravelimbolo.com</a>
+  </td>
+</tr>
+</table>
 
-Les corrections et suggestions sont les bienvenues via une issue ou une pull request vers la branche `develop`. Les règles sont décrites dans [CONTRIBUTING.md](CONTRIBUTING.md).
+---
+
+## Contributions
+
+<table style="border-spacing:0; font-size:13px; width:100%;">
+<tr>
+  <th style="padding:8px 12px;">Rôle</th>
+  <th style="padding:8px 12px;">Personne</th>
+  <th style="padding:8px 12px;">Contribution</th>
+</tr>
+<tr>
+  <td style="padding:8px 12px;"><strong>Auteur & mainteneur</strong></td>
+  <td style="padding:8px 12px;"><a href="https://github.com/dravelimbolo">Dravel IMBOLO</a></td>
+  <td style="padding:8px 12px;">Conception du cours · rédaction · travaux pratiques · mentorat</td>
+</tr>
+</table>
+
+Les contributions sont les bienvenues. Avant d'ouvrir une pull request, lis le **[guide de contribution](CONTRIBUTING.md)** : branches Git Flow, commits conventionnels et pull requests vers `develop`.
+
+---
 
 ## Licence
 
-Copyright (c) 2026 Dravel-Ameguste IMBOLO.
+Distribué sous licence **Creative Commons Attribution 4.0 International (CC BY 4.0)**. Voir le fichier [LICENSE](LICENSE).
 
-Ce cours est publié sous licence [Creative Commons Attribution 4.0 International (CC BY 4.0)](LICENSE). Vous pouvez le partager et l'adapter, y compris à des fins commerciales, à condition de citer l'auteur et de fournir un lien vers la licence.
+Tu peux partager et adapter ce cours, à condition de citer l'auteur et de fournir un lien vers la licence.
+
+Copyright (c) 2026 **Dravel IMBOLO**.
+
+---
+
+<div align="center">
+
+<br/>
+
+_"Transformer des idées en applications fonctionnelles, robustes et scalables."_
+
+<br/>
+
+</div>
